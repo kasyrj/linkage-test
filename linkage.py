@@ -10,7 +10,7 @@ class LinkageTest():
 
     
     def __createPairwiseMatrix(self, x):
-        '''Return an two-dimensional dict of the form data[x][x], where x is a list of keys. The endpoints have None as their value.
+        '''Return a two-dimensional dict of the form data[x][x], where x is a list of keys. The endpoints have None as their value.
 
         :param x: List of items to use as keys.
         :type x: list of str
@@ -39,8 +39,6 @@ class LinkageTest():
                    '"' + "potential_linkage"        + '"' + "," +
                    '"' + "actual_linkage"           + '"' + "," +
                    '"' + "linkage_percentage"       + '"' + "\n")
-    
-        #print(csv[-1])
         
         # step 1: collect potentially linked data point pairs of each feature
 
@@ -57,7 +55,6 @@ class LinkageTest():
                   + str(feature)
                   + " (" + str(feature_counter) + "/" + str(feature_length) + ")", file=sys.stderr)
             datapoint_cache = self.__createPairwiseMatrix(data.getDatapoints())
-            # print(len(datapoint_cache))
             for x in data.getDatapoints():
                 for y in data.getDatapoints():
                     if x == y:
@@ -144,7 +141,6 @@ class LinkageTest():
                            '"' + str(len(pruned_potential_pairs)) + '"' + "," +
                            '"' + str(len(shared_pairs))    + '"' + "," +
                            '"' + str(linkage)              + '"' + "\n")
-                # print(csv[-1])
                 counter += 1
                 total_count += 1
             print(str(total_count) + " feature pairs calculated. Done.", file=sys.stderr)
