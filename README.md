@@ -11,9 +11,9 @@ Ensure you have Python3 installed. For an overview of command line options see `
 Basic analysis of the test data with the following settings:
 
 - input file `example-data/testdata.csv`,
-- present characters are indicated by "1",
-- absent characters are indicated by "0",
-- missing characters are indicated by "-",
+- present characters are indicated by `1`,
+- absent characters are indicated by `0`,
+- missing characters are indicated by `-`,
 - output is stored in file `results.csv`: 
 
 `linkage-test.py -i "example-data/testdata.csv" -p "1" -m "-" -a "0" -o "results.csv"`
