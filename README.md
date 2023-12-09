@@ -1,6 +1,6 @@
 # linkage-test
 
-A simple Python3 program to perform the linkage test originally proposed in Syrjänen et al. (2016). The repository also includes an R script to help visualize the results as a heatmap
+A simple Python3 program to perform the linkage test originally proposed in Syrjänen et al. (2016). The repository also includes an R script to help visualize the results as a heatmap.
 
 ## Basic usage of linkage test
 
@@ -22,7 +22,7 @@ Ensure your R has `gplots` installed.
 
 The following creates plots in SVG, PDF and EPS formats with the file names `visualization.svg`, `visualization.pdf` and `visualization.eps` based on linkage test results in file `results.csv`
 
-`Rscript linkage-heatmap.R results.csv visualization
+`Rscript linkage-heatmap.R results.csv visualization`
 
 ## References
 
