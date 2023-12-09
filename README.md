@@ -2,6 +2,8 @@
 
 A simple Python3 program to perform the linkage test originally proposed in Syrjänen et al. (2016). The repository also includes an R script to help visualize the results as a heatmap.
 
+If you use this tool in your research, please cite the paper Syrjänen et al. (2016).
+
 ## Basic usage of linkage test
 
 Ensure you have Python3 installed. For an overview of command line options see `linkage-test.py --help`
