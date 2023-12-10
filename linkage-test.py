@@ -8,7 +8,7 @@ from filetools import FileTools, CsvParser
 from csv_binary import CSVBinaryDataset
 from linkage import LinkageTest
 
-PARSER_DESC = "Perform linkage test for multistate data from Syrjänen et al. (2016). Directly compatible with the binary CSV format of Lauri Kettunen's dialect atlas."
+PARSER_DESC = "Perform linkage test for multistate data from Syrjänen et al. (2016)."
 
 DEFAULT_MISSING = '-'
 DEFAULT_ABSENT = '0'
