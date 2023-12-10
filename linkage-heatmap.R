@@ -8,7 +8,7 @@ library('gplots')
 
 args = commandArgs(trailingOnly=TRUE)
 
-outputFileBase <- 'linkage_heatmap'
+outputFileBase <- 'linkage_heatmap' # If second parameter is not provided, the script will default to this output file base
 
 if (length(args) == 0) {
 
