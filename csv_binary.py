@@ -28,9 +28,11 @@ class CSVBinaryDataset(AbstractMultistate):
         return(self.__bm[datapoint][feature][variant] == True)
 
     def featureVariantAbsentInDatapoint(self,datapoint,feature,variant):
+        '''Return True if given feature variant is meaningfully absent in data point, or False if it is not. Present and missing both return False'''
         return(self.__bm[datapoint][feature][variant] == False)
 
     def featureVariantMissingInDatapoint(self,datapoint,feature,variant):
+        '''Return True if given feature variant is missing in data point, or False if it is not. Present and meaningfully absent both return False'''
         return(self.__bm[datapoint][feature][variant] == None)
 
     def getAsciiDatapoint(self,datapoint):
@@ -126,7 +128,7 @@ class CSVBinaryDataset(AbstractMultistate):
                 for char in chars:
                     if char in chars_in_dp:
                         self.__bm[dp][feature][char] = True
-                        one_counter+=1
+                        one_counter += 1
                     else:
                         self.__bm[dp][feature][char] = fill_char
                         counter += 1
