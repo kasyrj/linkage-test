@@ -1,9 +1,10 @@
 #!/usr/bin/Rscript
 #
 # Plot linkage test as a heatmap (X and Y axes are features, and temperature shows how high the degree of linkage is)
-# date: 2015-01-20
+# date: 2023-12-20
 # author: Kaj Syrjänen
 # install gplots library before using (install.packages("gplots")
+
 library('gplots')
 
 args = commandArgs(trailingOnly=TRUE)
@@ -36,29 +37,32 @@ M[cbind(i,j)] <- M[cbind(j,i)] <- newdata$linkage_percentage
 #set logical to FALSE to include middle diagonal
 M[lower.tri(M,TRUE)] <- NA
 
-# Optional: Add symmetric row
-#for (i in rownames(M))
+# Optional: Add symmetric diagonal; heat map values for these are 1.0, as all features perfectly match themselves.
+# Uncomment the following rows to enable
+
+# for (i in rownames(M))
 #{
 #	M[i,i] <- 1.0
 #}
-# TODO: moving axis to top
-# axis(3, 1:213, labels = colnames(M), las = 2, line = -0.5 + 0.5, tick = 0, cex.axis = 0.2 + 1/log10(213), hadj = NA, padj = 0)
 
+# Construct file names for output
 pdfFile <- paste(outputFileBase, ".pdf", sep = "")
 svgFile <- paste(outputFileBase, ".svg", sep = "")
 epsFile <- paste(outputFileBase, ".eps", sep = "")
 
 gradient <- colorRampPalette(c("yellow","red"))
 
+# create PDF
 pdf(pdfFile, width=20, height=20)
-
 heatmap.2(M,dendrogram='none',density.info='density',Colv=FALSE,na.color='aliceblue',Rowv=FALSE,trace='none',col=gradient,symm=TRUE)
 dev.off()
 
+# create SVG
 svg(svgFile,width=20,height=20)
 heatmap.2(M,dendrogram='none',density.info='density',Colv=FALSE,na.color='aliceblue',Rowv=FALSE,trace='none',col=gradient,symm=TRUE)
 dev.off()
 
+# create EPS
 postscript(epsFile,horizontal=FALSE, paper = "special",width=20,height=20)
 heatmap.2(M,dendrogram='none',density.info='density',Colv=FALSE,na.color='aliceblue',Rowv=FALSE,trace='none',col=gradient,symm=TRUE)
 dev.off()
