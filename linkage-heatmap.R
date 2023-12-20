@@ -34,7 +34,7 @@ i <- match(newdata$feature_a,an)
 j <- match(newdata$feature_b,an)
 M[cbind(i,j)] <- M[cbind(j,i)] <- newdata$linkage_percentage
 
-#set logical to FALSE to include middle diagonal
+# Remove lower triangle from heatmap; similarity of (A,B) === similarity of (B,A) for all pairs, so it gives us no extra information
 M[lower.tri(M,TRUE)] <- NA
 
 # Optional: Add symmetric diagonal; heat map values for these are 1.0, as all features perfectly match themselves.
