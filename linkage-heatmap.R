@@ -13,7 +13,7 @@ outputFileBase <- 'linkage_heatmap' # If second parameter is not provided, the s
 
 if (length(args) == 0) {
 
-    stop("Please specify input file as an argument, e.g. `Rscript --vanilla linkage_heatmap.r linkage_data.csv`",
+    stop("Please specify input file as an argument, e.g. `Rscript linkage_heatmap.R linkage_data.csv`",
          call.=FALSE) 
 
 } else {
